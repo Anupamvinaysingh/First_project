@@ -1,0 +1,255 @@
+* {
+  box-sizing: border-box; /* Ensures margin don’t affect element size */
+  margin: 0;
+  padding: 0;
+}
+
+/* Base styling for the body */
+body {
+  font-family: Arial, sans-serif; /* Clean and readable font */
+  line-height: 1.6;               /* Comfortable line spacing */
+  color: #333;                    /* Dark gray text for readability */
+  background-color: #f9f9f9;      /* Light background */
+  background-image: url('ICC_Background.jpeg'); /*Background image*/
+  background-repeat: no-repeat;
+  background-attachment: fixed;     /* Keeps image fixed during scroll */
+  background-position: center top;  /* Position at top center */
+  background-size: auto;            /* Keeps original size */
+}
+
+
+/* Header and footer have consistent styling */
+header, footer {
+  background-color: #f57206; /* Bright orange background for visibility */
+  color: white;              /* White text on orange */
+  text-align: center;        /* Center-align text */
+  padding: 1rem 0;           /* Vertical padding */
+}
+
+/* Navigation bar layout */
+nav {
+  display: flex;                  /* Flex layout for horizontal alignment */
+  justify-content: space-between;/* Space between title and other items */
+  align-items: center;           /* Vertically center items */
+  max-width: 1100px;             /* Limit width */
+  margin: 0 auto;                /* Center horizontally */
+  padding: 0 1rem;               /* Horizontal padding */
+}
+
+/* Styling for site title inside navbar */
+nav h1 {
+  font-size: 1.5rem; /* Slightly larger title */
+}
+
+/* Main content container */
+main {
+  max-width: 1100px;    /* Keeps content from stretching too wide */
+  margin: 2rem auto;    /* Center with vertical spacing */
+  padding: 0 1rem;      /* Padding inside the container */
+}
+
+/* Section spacing */
+section {
+  margin-bottom: 2rem; /* Space below each section */
+}
+
+/* Section headings */
+h2 {
+  margin-bottom: 1rem;  /* Space under heading */
+  color: #f57206;        /* Theme color for subheadings */
+}
+
+/* Event list styling */
+.events ul {
+  list-style-type: disc; /* Bullet points */
+  margin-left: 20px;     /* Indent the list */
+}
+
+/* Form element spacing */
+.form-group {
+  margin-bottom: 1rem; /* Space between form fields */
+}
+
+/* Inputs and buttons have a consistent style */
+input, button {
+  width: 100%;           /* Full width inputs */
+  padding: 0.5rem;       /* Inner spacing */
+  font-size: 1rem;       /* Consistent text size */
+  margin-top: 0.5rem;    /* Space above inputs */
+}
+
+/* Button specific styles */
+button {
+  background-color: #f57206; /* Theme color background */
+  color: white;              /* White text */
+  border: none;              /* No border */
+  cursor: pointer;           /* Pointer on hover */
+  border-radius: 8px;        /* Rounded corners */
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #f8ec0e; /* Bright yellow on hover */
+}
+
+/* Photo container uses flex layout */
+.photos {
+  display: flex;          /* Arrange images in a row */
+  flex-wrap: wrap;        /* Allow wrapping for responsiveness */
+  gap: 1rem;              /* Space between images */
+}
+
+/* Contact section styling */
+.contact {
+  background-color: #e0ecff; /* Light blue background */
+  padding: 1rem;             /* Inner spacing */
+  border-radius: 5px;        /* Rounded corners */
+}
+
+/* Footer text size and spacing */
+footer {
+  font-size: 0.9rem;     /* Smaller footer text */
+  margin-top: 2rem;      /* Space above footer */
+}
+
+/* Responsive styles for small screens */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column; /* Stack nav items vertically */
+    gap: 0.5rem;             /* Spacing between stacked items */
+  }
+
+  .photos {
+    flex-direction: column; /* Stack photos vertically */
+  }
+}
+
+/* Description box styling */
+.description {
+  background-color: #fff4e6;                         /* Light cream background */
+  border-left: 5px solid #f57206;                    /* Orange accent line */
+  padding: 1.5rem;                                   /* Padding inside box */
+  border-radius: 10px;                               /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(245, 114, 6, 0.1);      /* Subtle orange shadow */
+  transition: transform 0.3s ease;                   /* Smooth scale effect */
+}
+
+/* Description hover effect */
+.description:hover {
+  transform: scale(1.01); /* Slight zoom on hover */
+}
+
+/* Paragraphs in description box */
+.description p {
+  font-size: 1.1rem; /* Slightly larger paragraph text */
+  color: #333;       /* Dark gray for readability */
+}
+
+/* Photo styling */
+.photos img {
+  max-width: 100%;                                /* Responsive width */
+  height: auto;                                   /* Maintain aspect ratio */
+  border-radius: 5px;                             /* Rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);        /* Soft shadow */
+}
+
+/* Hover effect on photos */
+.photos img:hover {
+  transform: scale(1.05);                         /* Slight zoom */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);       /* Stronger shadow */
+}
+
+/* LinkedIn logo styling */
+.linkedin-logo {
+  transition: transform 0.3s ease, filter 0.3s ease; /* Smooth interaction */
+  border-radius: 4px;                                /* Slight rounding */
+}
+
+/* LinkedIn hover effect */
+.linkedin-logo:hover {
+  transform: scale(1.3);                            /* Zoom in */
+  filter: brightness(1.2);                          /* Brighten */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);          /* Shadow effect */
+}
+
+/* Calendar wrapper styling */
+.calendar {
+  margin-top: 2rem;                               /* Space above */
+  padding: 1rem;                                  /* Inner padding */
+  background-color: #f2f9ff;                      /* Very light blue */
+  border-radius: 10px;                            /* Rounded corners */
+  box-shadow: inset 0 0 10px rgba(0, 51, 102, 0.1); /* Soft inner shadow */
+}
+
+/* Calendar grid layout */
+.calendar-grid {
+  display: grid;                          /* CSS Grid layout */
+  grid-template-columns: repeat(7, 1fr);  /* 7 equal columns (week view) */
+  gap: 10px;                              /* Space between days */
+  margin: 1rem 0;                         /* Vertical spacing */
+}
+
+/* Individual day boxes */
+.day {
+  background-color: #e0ecff;               /* Light blue */
+  padding: 20px;                           /* Size of each day box */
+  text-align: center;                      /* Centered text */
+  border-radius: 8px;                      /* Rounded boxes */
+  cursor: pointer;                         /* Pointer on hover */
+  transition: background-color 0.3s ease;  /* Smooth color change */
+  font-weight: bold;                       /* Emphasize dates */
+}
+
+/* Day box hover effect */
+.day:hover {
+  background-color: #99c2ff; /* Slightly darker blue on hover */
+}
+
+/* Text info for meeting days */
+.meeting-info {
+  color: #003366;       /* Dark blue */
+  font-weight: bold;    /* Stand out */
+}
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+}
+/* Static Instagram image styling */
+.static-instagram {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.static-instagram img {
+  width: 200px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.static-instagram img:hover {
+  transform: scale(1.1);
+}
+
+.slideshow-container {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+}
+
+.slideshow-container img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 10px;
+  transition: opacity 1s ease-in-out;
+}
+
+.slideshow-container figcaption {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: #333;
+}
+

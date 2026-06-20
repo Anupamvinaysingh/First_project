@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Institute Cultural Council</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+
+  <header>
+    <nav>
+      <h1>Institute Cultural Council</h1>
+      <a href="Join_Us.html">                              <!--Joining form-->
+      <button>Join Us</button>  
+      </a>
+      <form id="searchForm" style="display: flex; gap: 0.5rem;">      <!--Serach Bar-->
+    <input type="text" id="searchInput" placeholder="Search..." />
+    <button type="submit">Go</button>
+  </form>
+    </nav>
+  </header>
+
+  <main>
+    <section class="description">
+      <h2>About Us</h2>
+      <p>The Institute Cultural Council is a community of students passionate about innovation, arts, and collaboration.
+        It organises different cultural activities like traditional dance and music, modern dance and music, filming, photography, etc.
+        We host events and workshops to help members explore their creative potential and develop skills in design, writing, photography, and more.
+      </p>
+    </section>
+    <section class="Clubs">
+      <h2>Clubs</h2>
+      <ul>
+        <li>Web Council</li>
+        <li>Design Club</li>
+        <li>Symphony:- Music Club</li>
+        <li>Pixels:- Photography Club</li>
+        <li>Kava- Culinary Club</li>
+        <li>Literati</li>
+        <li>Style Up:- The Fashion Club</li>
+        <li>Roots</li>
+      </ul>
+    </section>
+    <section class="Events">
+      <h2>Major events conducted in the year 2024- 25</h2>
+      <ul>
+        <li>Prom Night</li>
+        <li>Samsaaraa</li>
+        <li>Surbahaar</li>
+        <li>Literarium</li>
+        <li>Vision</li>
+        <li>Short Film Screening</li>
+        <li>Rangotsav</li>
+        <li>Annual Standup Showcase</li>
+        <li>Performing Arts Festival</li>
+        <li>Gyration</li>
+        <li>Goonj</li>
+        <li>Kaladarshan</li>
+        <li>Showstopper</li>
+        <li>Dharohar</li>
+      </ul>
+    </section>
+    <section class="photos">
+  <h2>Event Photos</h2>
+
+  <figure class="static-instagram">
+    <a href="https://www.instagram.com/culturals.iitb/?hl=en" target="_blank">
+      <img src="ICC.jpg" alt="Instagram Handle">
+    </a>
+    <figcaption>Instagram Handle⇧</figcaption>
+  </figure>
+
+  <!-- Rotating slideshow -->
+  <div class="slideshow-container">
+    <img id="slideshowImage" src="Kaladarshan.jpeg" alt="Event Slideshow" />
+    <figcaption id="caption">Kaladarshan Event</figcaption>
+  </div>
+</section>
+
+
+    <section class="contact">
+      <h2>Contact the Secretary</h2>
+      <p><strong>Name:</strong> Aditya Sisodiya</p>
+      <p><strong>LinkedIn Profile:</strong> <a href="https://www.linkedin.com/in/aditya-sisodiya-10050a266" 
+        target="_blank"><img src="LinkedInLogo.avif" width="25" alt="Click here" class="linkedin-logo"></a>
+      <p><strong>Phone:</strong> +91 7999157905</p>
+    </section>
+    <section class="calendar">
+  <h2>Club Meeting Calendar</h2>
+  <div class="calendar-grid">
+    <div class="day" onclick="showMeeting(this)">1</div>
+    <div class="day" onclick="showMeeting(this)">2</div>
+    <div class="day" onclick="showMeeting(this)">3</div>
+    <div class="day" onclick="showMeeting(this)">4</div>
+    <div class="day" onclick="showMeeting(this)">5</div>
+    <div class="day" onclick="showMeeting(this)">6</div>
+    <div class="day" onclick="showMeeting(this)">7</div>
+  </div>
+  <p id="meetingInfo" class="meeting-info">Click a date to view meeting info.</p>
+</section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Institute Cultural Council. All rights reserved.</p>
+  </footer>
+  <script>
+  function showMeeting(element) {
+    const date = element.textContent;
+    const info = document.getElementById('meetingInfo');
+    if (date === "3") {
+      info.textContent = "🎤 Institute Cultural Council Orientation at 6 PM in Convocation Hall";
+    } else if (date === "5") {
+      info.textContent = "🎨 Pixels Competition";
+    } else {
+      info.textContent = `📅 No event scheduled on day ${date}.`;
+    }
+  }
+</script>
+<script>
+  document.getElementById('searchForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const prevHighlights = document.querySelectorAll('.highlight');
+    prevHighlights.forEach(el => {
+      el.outerHTML = el.innerText;
+    });
+
+    const query = document.getElementById('searchInput').value.trim().toLowerCase();
+    if (!query) return;
+
+    const bodyText = document.body.innerHTML;
+    const regex = new RegExp(`(${query})`, 'i');
+
+    let found = false;
+
+    document.querySelectorAll('main, header, footer').forEach(section => {
+      section.querySelectorAll('*:not(script):not(style)').forEach(el => {
+        if (el.childNodes.length === 1 && el.nodeType === 1 && el.innerText.toLowerCase().includes(query)) {
+          el.innerHTML = el.innerHTML.replace(regex, `<mark class="highlight">$1</mark>`);
+          if (!found) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            found = true;
+          }
+        }
+      });
+    });
+  });
+</script>
+<script>
+  const slides = [
+    { src: 'Kaladarshan.jpeg', caption: 'Kaladarshan Event' },
+    { src: 'Vision_ICC.jpeg', caption: 'Vision Event' },
+    { src: 'StyleUpOrientationPhoto.jpeg', caption: 'Style Up Orientation' },
+    { src: 'rootsOrientationPhoto.jpeg', caption: 'Roots Orientation' }
+  ];
+
+  let currentSlide = 0;
+  const imageElement = document.getElementById('slideshowImage');
+  const captionElement = document.getElementById('caption');
+
+  function showNextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    imageElement.style.opacity = 0;
+
+    setTimeout(() => {
+      imageElement.src = slides[currentSlide].src;
+      captionElement.textContent = slides[currentSlide].caption;
+      imageElement.style.opacity = 1;
+    }, 500);
+  }
+
+  setInterval(showNextSlide, 3000); // Change every 3 seconds
+</script>
+
+
+
+
+</body>
+</html>
